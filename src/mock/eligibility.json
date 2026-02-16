@@ -1,0 +1,21 @@
+{
+  "eligibilityResult": {
+    "isEligible": true,
+    "approvalLikelihood": 85,
+    "riskCategory": "low",
+    "decisionReason": "Strong income-to-expense ratio and manageable existing debt"
+  },
+  "recommendedLoan": {
+    "maxAmount": 180000.00,
+    "recommendedAmount": 150000.00,
+    "interestRate": 12.5,
+    "monthlyPayment": 7089.50,
+    "totalRepayment": 170148.00
+  },
+  "affordabilityAnalysis": {
+    "disposableIncome": 10000.00,
+    "debtToIncomeRatio": 20.0,
+    "loanToIncomeRatio": 60.0,
+    "affordabilityScore": "good"
+  }
+}
