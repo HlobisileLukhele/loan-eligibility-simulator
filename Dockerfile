@@ -1,19 +1,44 @@
-# Stage 1: Build the app
-FROM node:22-alpine AS builder
+# Development stage
+FROM node:18-alpine AS development
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy source code
+COPY . .
+
+# Expose Vite dev server port
+EXPOSE 5173
+
+# Start development server
+CMD ["npm", "run", "dev", "--", "--host"]
+
+
+# Build stage
+FROM node:18-alpine AS builder
 
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 
 COPY . .
 RUN npm run build
 
 
-# Stage 2: Serve with Nginx
-FROM nginx:alpine
+# Production stage
+FROM nginx:alpine AS production
 
+# Copy built files from build stage
 COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Copy nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
