@@ -1,3 +1,4 @@
+/* Tailwind core directives MUST come first */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
