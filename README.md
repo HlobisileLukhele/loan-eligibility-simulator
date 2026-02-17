@@ -439,7 +439,7 @@ Hlobisile Lukhele
 ## Support
 For issues and questions:
 - GitHub Issues: [Create an issue](https://github.com/HlobisileLukhele/loan-eligibility-simulator/issues)
-- Email: your.email@example.com
+- Email: jeniselukhele@gmail.com
 
 ---
 
