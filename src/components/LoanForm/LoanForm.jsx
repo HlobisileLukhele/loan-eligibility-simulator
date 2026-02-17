@@ -115,19 +115,27 @@ function LoanForm() {
   };
 
   return (
-    <div className="w-full ">
+    <div className="w-full  min-h-screen py-10 px-4" style={{ backgroundColor: '#f4f6fb' }}>
+      
       {loading && <LoadingDots />}
       <form
         onSubmit={handleSubmit}
         className="max-w-2xl mx-auto p-6 bg-white rounded shadow"
+        style={{ boxShadow: '0 4px 32px rgba(0,71,187,0.10)' }}
+
       >
-        <h2 className="text-2xl font-bold mb-4 text-center ">
+        <h2 className="text-3xl font-bold mb-4 text-center "
+        style={{ color: '#0047BB' }}
+        >
           Loan Application Form
         </h2>
 
         {/* AGE */}
         <div className="mb-4">
-          <label className="block mb-1 font-medium">Age</label>
+          <label className="block mb-1 font-medium tracking-wide uppercase"
+           style={{ color: '#0047BB' }}
+          
+          >Age</label>
           <input
             type="number"
             value={formData.personalInfo.age}
@@ -149,7 +157,9 @@ function LoanForm() {
 
         {/* EMPLOYMENT STATUS */}
         <div className="mb-4">
-          <label className="block mb-1 font-medium">
+          <label className="block mb-1 font-medium tracking-wide uppercase"
+           style={{ color: '#0047BB' }}
+          >
             Employment Status
           </label>
           <select
@@ -161,7 +171,7 @@ function LoanForm() {
                 e.target.value
               )
             }
-            className={`w-full border p-2 rounded ${
+            className={`w-full border-2 p-3 rounded-xl text-gray-800 outline-none transition-all focus:border-blue-600 bg-gray-50 ${
               errors.personalInfo?.employmentStatus
                 ? "border-red-500"
                 : "border-gray-300"
@@ -185,7 +195,9 @@ function LoanForm() {
 
         {/* EMPLOYMENT DURATION */}
         <div className="mb-4">
-          <label className="block mb-1 font-medium">
+          <label className="block mb-1 font-medium tracking-wide uppercase"
+           style={{ color: '#0047BB' }}
+          >
             Employment Duration (Months)
           </label>
           <input
@@ -213,7 +225,9 @@ function LoanForm() {
 
         {/* MONTHLY INCOME */}
         <div className="mb-4">
-          <label className="block mb-1 font-medium">
+          <label className="block mb-1 font-medium tracking-wide uppercase"
+           style={{ color: '#0047BB' }}
+          >
             Monthly Income (R)
           </label>
           <input
@@ -241,7 +255,9 @@ function LoanForm() {
 
         {/* MONTHLY EXPENSES */}
         <div className="mb-4">
-          <label className="block mb-1 font-medium">
+          <label className="block mb-1 font-medium tracking-wide uppercase"
+          style={{ color: '#0047BB' }}
+          >
             Monthly Expenses (R)
           </label>
           <input
@@ -269,7 +285,9 @@ function LoanForm() {
 
         {/* EXISTING DEBT */}
         <div className="mb-4">
-          <label className="block mb-1 font-medium">
+          <label className="block mb-1 font-medium tracking-wide uppercase"
+           style={{ color: '#0047BB' }}
+          >
             Existing Debt (R)
           </label>
           <input
@@ -288,7 +306,9 @@ function LoanForm() {
 
         {/* CREDIT SCORE */}
         <div className="mb-4">
-          <label className="block mb-1 font-medium">
+          <label className="block mb-1 font-medium tracking-wide uppercase"
+           style={{ color: '#0047BB' }}
+          >
             Credit Score
           </label>
           <input
@@ -316,7 +336,9 @@ function LoanForm() {
 
         {/* REQUESTED AMOUNT */}
         <div className="mb-4">
-          <label className="block mb-1 font-medium">
+          <label className="block mb-1 font-medium tracking-wide uppercase"
+           style={{ color: '#0047BB' }}
+          >
             Requested Loan Amount (R)
           </label>
           <input
@@ -344,7 +366,9 @@ function LoanForm() {
 
         {/* LOAN TERM */}
         <div className="mb-4">
-          <label className="block mb-1 font-medium">
+          <label className="block mb-1 font-medium tracking-wide uppercase"
+           style={{ color: '#0047BB' }}
+          >
             Loan Term (Months)
           </label>
           <input
@@ -372,7 +396,9 @@ function LoanForm() {
 
         {/* LOAN PURPOSE */}
         <div className="mb-6">
-          <label className="block mb-1 font-medium">
+          <label className="block mb-1 font-medium tracking-wide uppercase"
+           style={{ color: '#0047BB' }}
+          >
             Loan Purpose
           </label>
           <select
@@ -384,7 +410,11 @@ function LoanForm() {
                 e.target.value
               )
             }
-            className="w-full border p-2 rounded border-gray-300"
+           className={`w-full border-2 p-3 rounded-xl text-gray-800 outline-none transition-all focus:border-blue-600 bg-gray-50 ${
+              errors.personalInfo?.employmentStatus
+                ? "border-red-500"
+                : "border-gray-300"
+            }`}
           >
             <option value="">Select purpose</option>
             {products.flatMap((product) =>
@@ -403,17 +433,20 @@ function LoanForm() {
             setResult(null);
             setErrors({});
             }}
-            className="mt-4 bg-[#417ef0] text-white px-4 py-2 rounded-xl"
+            className="w-full text-white py-4 rounded-xl font-bold text-lg tracking-wide transition-all hover:opacity-90 active:scale-95"
+            style={{ backgroundColor: '#0047BB' }}
             >
             {loading ? "Processing..." : "Submit Application"}  
         </button>
         </div>
-
       </form>
+
 
       {result && (
         <div className="mt-8 p-6 bg-green-50 border border-green-200 rounded shadow">
-          <h3 className="text-xl font-bold mb-4">
+          <h3 className="text-xl font-bold mb-4 tracking-tight" 
+          style={{ color: '#0047BB' }}
+          >
             Eligibility Result
           </h3>
 
@@ -446,19 +479,15 @@ function LoanForm() {
 
             <div className="w-full bg-gray-200 rounded h-3">
                 <div
-                className="bg-green-500 h-3 rounded"
+                className="h-3 rounded transition-all duration-1000"
                 style={{
-                    width: `${result.eligibilityResult.approvalLikelihood}%`,
+                    backgroundColor: '#0047BB',width: `${result.eligibilityResult.approvalLikelihood}%`,
                 }}
                 />
             </div>
 
             <p className="text-sm mt-1">
                 {result.eligibilityResult.approvalLikelihood}%
-            </p>
-
-            <p className="text-sm mt-1">
-                {formatCurrency(result.recommendedLoan.maxAmount)}
             </p>
             </div>
 
