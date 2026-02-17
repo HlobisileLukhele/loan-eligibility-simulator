@@ -16,7 +16,7 @@ COPY . .
 EXPOSE 5173
 
 # Start development server
-CMD ["npm", "run", "dev", "--", "--host"]
+CMD ["npm", "run", "dev"]
 
 
 # Build stage
